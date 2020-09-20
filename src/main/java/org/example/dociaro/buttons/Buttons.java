@@ -1,17 +1,24 @@
 package org.example.dociaro.buttons;
 
-public enum Buttons {
-    ALL_BUTTON("Все"),
-    FOR_SIGNATURE_BUTTON("На подпись"),
-    APP_BUTTON("Заявки на продукт");
+public class Buttons {
 
-    private final String text;
+    public enum Name {
+        ALL_BUTTON("Все"),
+        SIGN_BUTTON("На подпись"),
+        APP_BUTTON("Заявки на продукт");
 
-    Buttons(String text) {
-        this.text = text;
+        private final String text;
+
+        Name(String text) {
+            this.text = text;
+        }
+
+        public String getText() {
+            return text;
+        }
     }
 
-    public String getText() {
-        return text;
+    public static String getLocator(String text) {
+        return "//span[text()='" + text + "']/parent::button";
     }
 }

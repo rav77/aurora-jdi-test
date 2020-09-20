@@ -10,13 +10,15 @@ public class DociaroTest extends TestBase {
     @Value("${domain}") private String domain;
 
     @Test
-    void testButtons() {
+    void testButtons() throws InterruptedException {
         System.out.println("URL: " + domain);
 
         dashboard.open();
 
-        allButton.click();
-        forSignatureButton.click();
         appButton.click();
+        signButton.click();
+        allButton.click();
+
+        Thread.sleep(1000);
     }
 }
